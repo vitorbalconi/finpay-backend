@@ -69,7 +69,7 @@ jobs:
         with:
           images: ${{ steps.image.outputs.name }}
           tags: |
-            type=raw,value=${{ github.ref_name }}
+            type=semver,pattern={{version}}
             type=sha,prefix=sha-,format=short
       - name: Build and push image
         id: docker
@@ -85,5 +85,5 @@ jobs:
         run: |
           echo "### Published container image" >> "$GITHUB_STEP_SUMMARY"
           echo "- Image: \`${{ steps.image.outputs.name }}\`" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Release tag: \`${{ github.ref_name }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Release tag: \`${{ steps.metadata.outputs.version }}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "- Digest: \`${{ steps.docker.outputs.digest }}\`" >> "$GITHUB_STEP_SUMMARY"

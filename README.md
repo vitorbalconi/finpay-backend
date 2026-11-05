@@ -64,4 +64,4 @@ git tag -a v1.0.0 -m "Release v1.0.0"
 git push origin v1.0.0
 ```
 
-O pacote ficará em **GitHub > perfil ou organização > Packages**, com o nome do repositório em minúsculas e as tags `v1.0.0` e `sha-<commit-curto>`. O digest `sha256:...` aparece no resumo do job **Publish release image**, nos detalhes da versão no GHCR e em `docker buildx imagetools inspect ghcr.io/<owner>/<repository>:v1.0.0`.
+O pacote ficará em **GitHub > perfil ou organização > Packages**, com o nome do repositório em minúsculas e as tags `1.0.0` e `sha-<commit-curto>`. O digest `sha256:...` aparece no resumo do job **Publish release image**, nos detalhes da versão no GHCR e em `docker buildx imagetools inspect ghcr.io/<owner>/<repository>:1.0.0`.
